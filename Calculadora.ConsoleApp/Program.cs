@@ -33,6 +33,14 @@ namespace Calculadora.ConsoleApp
             return opcaoContinuar;
         }
 
+        public static void Mensagem(string mensagem, ConsoleColor cor)
+        {
+            Console.ForegroundColor = cor;
+            Console.WriteLine(mensagem);
+            Console.ResetColor();
+            Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
             string continuar = null;
@@ -45,10 +53,7 @@ namespace Calculadora.ConsoleApp
 
                 while (operacao != "0" && operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "5")
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Operação inválida!");
-                    Console.ResetColor();
-                    Console.WriteLine();
+                    Mensagem("Operação inválida!", ConsoleColor.Red);
 
                     operacao = Menu();
                 }
@@ -110,11 +115,7 @@ namespace Calculadora.ConsoleApp
 
                 while (continuar != "0" && continuar != "1")
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Operação inválida!");
-                    Console.ResetColor();
-                    Console.WriteLine();
-                    continuar = Continuar();
+                    Mensagem("Operação inválida!", ConsoleColor.Red);
                 }
 
             } while (continuar == "1");
